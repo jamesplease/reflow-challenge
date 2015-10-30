@@ -4,13 +4,6 @@
   var main = document.querySelector('main');
   var loading = document.querySelector('.loading');
 
-  // The challenge is to fill in this method to force a reflow. This will
-  // make the loading element display while a subsequent reflow occurs to
-  // draw all of the squares
-  function forceReflow() {
-
-  }
-
   // Makes the loading element visible
   // Feel free to change this logic if you need to!
   function showLoading() {
@@ -38,10 +31,12 @@
   // 2. Force a reflow so that the browser actually does show it
   // 3. Render a bajillion cells
   renderBtn.addEventListener('click', function() {
-    showLoading();
-    forceReflow();
-    renderSquares();
-    hideLoading();
+      showLoading();
+      setTimeout(function() {
+        renderSquares();
+        hideLoading();
+      }, 0);
+    });
   });
 
   // Deletes all of the squares so that you can click again
