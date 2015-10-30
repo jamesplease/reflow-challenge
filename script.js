@@ -1,5 +1,6 @@
 (function() {
-  var button = document.querySelector('button');
+  var renderBtn = document.querySelector('.render');
+  var clearBtn = document.querySelector('.clear');
   var main = document.querySelector('main');
   var loading = document.querySelector('.loading');
 
@@ -14,6 +15,10 @@
   // Feel free to change this logic if you need to!
   function showLoading() {
     loading.classList.add('show');
+  }
+
+  function hideLoading() {
+    loading.classList.remove('show');
   }
 
   var divTemplate = document.createElement('div');
@@ -32,9 +37,17 @@
   // 1. Display the loader
   // 2. Force a reflow so that the browser actually does show it
   // 3. Render a bajillion cells
-  button.addEventListener('click', function() {
+  renderBtn.addEventListener('click', function() {
     showLoading();
     forceReflow();
     renderSquares();
+    hideLoading();
+  });
+
+  // Deletes all of the squares so that you can click again
+  clearBtn.addEventListener('click', function() {
+    var range = document.createRange();
+    range.selectNodeContents(main);
+    range.deleteContents();
   });
 })();
