@@ -8,7 +8,8 @@
   // make the loading element display while a subsequent reflow occurs to
   // draw all of the squares
   function forceReflow() {
-
+    var _renderSquares = renderSquares;
+    renderSquares = function(){ setTimeOut(_renderSquares, 0); };
   }
 
   // Makes the loading element visible
