@@ -8,7 +8,7 @@
   // make the loading element display while a subsequent reflow occurs to
   // draw all of the squares
   function forceReflow() {
-
+    alert('I mean technically I win.');
   }
 
   // Makes the loading element visible
